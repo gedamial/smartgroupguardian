@@ -1,0 +1,20 @@
+<svg width="120.4" height="20" viewBox="0 0 1204 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Telegram: group">
+  <title>Telegram: group</title>
+  <linearGradient id="a" x2="0" y2="100%">
+    <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="m"><rect width="1204" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#m)">
+    <rect width="782" height="200" fill="#555"/>
+    <rect width="422" height="200" fill="#08C" x="782"/>
+    <rect width="1204" height="200" fill="url(#a)"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+    <text x="220" y="148" textLength="522" fill="#000" opacity="0.25">Telegram</text>
+    <text x="210" y="138" textLength="522">Telegram</text>
+    <text x="837" y="148" textLength="322" fill="#000" opacity="0.25">group</text>
+    <text x="827" y="138" textLength="322">group</text>
+  </g>
+  <image x="40" y="35" width="130" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTguMzg0IDIyLjc3OWExLjE5IDEuMTkgMCAwMDEuMTA3LjE0NSAxLjE2IDEuMTYgMCAwMC43MjQtLjg0QzIxLjA4NCAxOCAyMy4xOTIgNy42NjMgMjMuOTgzIDMuOTQ4YS43OC43OCAwIDAwLS4yNi0uNzU4LjguOCAwIDAwLS43OTctLjE0QzE4LjczMyA0LjYwMiA1LjgyIDkuNDQ3LjU0MiAxMS40YS44MjcuODI3IDAgMDAtLjU0Mi43OTljLjAxMi4zNTQuMjUuNjYxLjU5My43NjQgMi4zNjcuNzA4IDUuNDc0IDEuNjkzIDUuNDc0IDEuNjkzczEuNDUyIDQuMzg1IDIuMjA5IDYuNjE1Yy4wOTUuMjguMzE0LjUuNjAzLjU3NmEuODY2Ljg2NiAwIDAwLjgxMS0uMjA3bDMuMDk2LTIuOTIzczMuNTcyIDIuNjE5IDUuNTk4IDQuMDYyem0tMTEuMDEtOC42NzdsMS42NzkgNS41MzguMzczLTMuNTA3IDEwLjE4NS05LjE4NmEuMjc3LjI3NyAwIDAwLjAzMy0uMzc3LjI4NC4yODQgMCAwMC0uMzc2LS4wNjRMNy4zNzQgMTQuMTAyeiIvPjwvc3ZnPg=="/>
+</svg>
