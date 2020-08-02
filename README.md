@@ -3,9 +3,9 @@
 
 [![Contact us on Telegram!](images/telegram-group.svg)](https://t.me/bottelegramIT)
 
-## Why should you choose SmartGroupGuardian
+## Why you should choose Smart Group Guardian
 
-This bot reduces **drastically** the number of bots required to manage a group, regardless of its size (one or one hundred members, it's only up to you!).
+This bot **drastically** reduces the number of bots required to manage a group, regardless of its size (one or one hundred members, it's only up to you!).
 
 ## Core values and core features
 
@@ -13,7 +13,7 @@ SmartGroupGuardian is an **open-source** Telegram bot for managing Telegram grou
 
 ### Our values
 
-We trust in the power of open-source software, so we all agreed to make this choice. Anybody has the right of contribute to the project under any of the aspects of the project, from code to documentation to new ideas and features.
+We trust in the power of open-source software, so we all agreed to make this choice. Anybody has the right to contribute to the project under any of the aspects of the project, from code to documentation to new ideas and features.
 
 ### Bot features
 

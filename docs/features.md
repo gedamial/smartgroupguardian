@@ -10,7 +10,7 @@ Available statuses:
 - ***Active*** - The feature is developed and available
 - ***Failing*** - The feature is developed, but not available due to errors or maintenance
 - ***Developing*** - The feature is being developed
-- ***Proposed*** - The feature has just being proposed (referring to the GitHub username or the Pull Request where the feature has been requested)
+- ***Proposed*** - The feature has just been proposed (referring to the GitHub username or the Pull Request where the feature has been requested)
 
 ### Members management
 
@@ -18,5 +18,8 @@ Available statuses:
 
 | Status    | Command Name  | Description |
 | :-:       | -             | -           |
+| ***Developing*** | ```kick``` | Kicks a member out of the group |
 | ***Developing*** | ```ban``` | Removes permanently a member, disallowing them to re-join the group. |
 |***Developing***| ```unban``` | Removes a user from the banned users list |
+|***Developing***| ```mute``` | Mutes a member |
+|***Developing***| ```unmute``` | Unmutes a member |
