@@ -1,12 +1,12 @@
 from telegram import Chat
-from const import CHAT_TO_LOANGUAGE
+from const import CHAT_TO_LANGUAGE
 
 
 def get(string,language,*args):
     if type(language)==Chat:
-        language=CHAT_TO_LOANGUAGE.get(language.id)
+        language=CHAT_TO_LANGUAGE.get(language.id)
     elif type(language)==int:
-        language=CHAT_TO_LOANGUAGE.get(language)
+        language=CHAT_TO_LANGUAGE.get(language)
     return string.get(language,string['en']).format(*args)
 
 
