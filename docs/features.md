@@ -19,7 +19,7 @@ Available statuses:
 | Status    | Command Name  | Description |
 | :-:       | -             | -           |
 | ***Developing*** | ```kick``` | Kicks a member out of the group |
-| ***Developing*** | ```ban``` | Removes permanently a member, disallowing them to re-join the group. |
+| ***Developing*** | ```ban``` | Removes permanently a member, disallowing him to re-join the group. |
 |***Developing***| ```unban``` | Removes a user from the banned users list |
 |***Developing***| ```mute``` | Mutes a member |
 |***Developing***| ```unmute``` | Unmutes a member |
