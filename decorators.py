@@ -22,7 +22,7 @@ def user_admin(func):
 
 def target_not_admin(func):
     def wrapper(update,context):
-        if not is_admin(update.effective_message.reply_to_message.from_user,update.effective_chat.id,context.bot):
+        if not is_admin(update.effective_message.reply_to_message.from_user.id,update.effective_chat.id,context.bot):
             return func(update,context)
         update.effective_message.reply_text(strings.get(strings.cannot_perform_on_admin,update.effective_chat))
     
