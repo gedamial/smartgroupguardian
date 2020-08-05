@@ -70,7 +70,7 @@ admins_have_been_notified={'en':'Admins have been notified',
 user_needs_help={'en':'{} needs <a href="{}">help</a>',
                  'it':'{} sta chiedendo <a href="{}">aiuto</a>'}
 
-# SETUP TODO
+# SETUP
 group_start_message={'en':'Thank you for adding me to this group. Make me an admin and '
                           'start me in private, then use /settings here to change the settings of the group',
                      'it':'Grazie per avermi aggiunto a questo gruppo. Rendimi admin e '
