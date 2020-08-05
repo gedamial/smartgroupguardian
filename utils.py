@@ -1,5 +1,6 @@
-from telegram import ChatMember
-from telegram.ext import MessageHandler,Filters,CommandHandler
+from telegram import ChatMember,ReplyKeyboardRemove
+from telegram.ext import MessageHandler,Filters,CommandHandler,ConversationHandler
+import strings
 
 
 class RegexCommandHandler(MessageHandler):
@@ -46,5 +47,19 @@ def is_member(user_id,chat_id,bot):
         return False
 
 
+def generic_fallback(update,context):
+    update.effective_message.reply_text(strings.get(strings.operation_not_allowed,update))
+
+
+def cancel(udpate,context):
+    udpate.effective_message.reply_text(strings.get(strings.conversation_canceled,udpate),
+                                        reply_markup=ReplyKeyboardRemove())
+    return ConversationHandler.END
+
+
+generic_fallback_handler=MessageHandler(Filters.all,generic_fallback)
+cancel_handler=CommandHandler('cancel',cancel)
+
+
 def error(update,context):  # TODO only for testing
-    update.effective_message.reply_text(str(context.error))
+    update.effective_message.reply_text('Error in execution:\n'+str(context.error))

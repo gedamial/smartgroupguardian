@@ -10,6 +10,11 @@ def welcome(update,context):
         update.message.reply_text(welcome_message)
 
 
+# this function's handlers should be added in a different group to let it run for each message
+def bad_word(update,context):
+    pass
+
+
 handlers=[
     MessageHandler(Filters.status_update.new_chat_members,welcome)
 ]

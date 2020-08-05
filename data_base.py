@@ -4,6 +4,23 @@ def get_chat_languages():  # returns a dict: chat_data -> language_code
     pass
 
 
+# CHAT SETUP
+def create_chat():  # should take several arguments to define
+    pass
+
+
+def set_admin_current_chat(user_id):  # sets the id of the group set by the admin using /settings
+    pass
+
+
+def get_admin_current_chat(user_id):  # returns the id of the group set by the admin using /settings
+    pass
+
+
+def set_chat_language(chat_id,language_code):
+    pass
+
+
 # WELCOME MESSAGE
 def set_welcome_message(chat_id,welcome_message):  # sets welcome_message as the welcome message for the requested chat
     pass
@@ -32,6 +49,7 @@ def get_macro(chat_id,macro_name):  # returns the content of the requested macro
 
 
 # WARN
+# THESE FUNCTIONS SHOULD NEVER RETURN A NON-INTEGER VALUE
 def add_warn(user_id,chat_id):  # creates the user and sets count to 1 if not warned yet
     pass
 
