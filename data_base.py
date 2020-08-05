@@ -31,7 +31,7 @@ def get_welcome_message(chat_id):  # returns the welcome message for the request
 
 
 # RULES
-def set_rules(chat_id):
+def set_rules(chat_id,rules):
     pass
 
 
@@ -70,7 +70,7 @@ def get_warn(user_id,chat_id):  # creates the user and sets the warn count to 0 
     pass
 
 
-def set_warn_limit(chat_id):  # sets the warn limit for the requested chat
+def set_warn_limit(chat_id,value):  # sets the warn limit for the requested chat
     pass
 
 
@@ -78,7 +78,7 @@ def get_warn_limit(chat_id):  # returns the warn limit for the requested chat
     pass
 
 
-def set_warn_limit_action(chat_id):
+def set_warn_limit_action(chat_id,action):
     # sets the action to perform when the chat's warn limit is reached for a user (ban, kick, mute)
     pass
 

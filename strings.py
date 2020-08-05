@@ -92,26 +92,56 @@ select_setting={'en':'Select the setting you want to change',
                 'it':'Scegli l\'impostazione che vuoi cambiare'}
 
 # SETUP BUTTONS
-set_language={'en':'Language',
-              'it':'Lingua'}
+set_language_button={'en':'Language',
+                     'it':'Lingua'}
 
 choose_a_language={'en':'Choose a language',
                    'it':'Scegli una lingua'}
 
-language_was_set={'en':'Language was set',
-                  'it':'La lingua è stata impostata'}
+language_has_been_set={'en':'Language has been set',
+                       'it':'La lingua è stata impostata'}
 
 language_not_complete={'en':'Some contents may be not available in this language',  # IMPORTANT FOR NEW LANGUAGES
                        'it':'Alcuni contenuti potrebbero non essere disponibili in questa lingua'}
 
-set_welcome={'en':'Welcome',
-             'it':'Benvenuto'}
+set_welcome_button={'en':'Welcome',
+                    'it':'Benvenuto'}
 
-set_rules={'en':'Rules',
-           'it':'Regole'}
+ask_for_welcome_message={'en':'Send me the new welcome message for your group',
+                         'it':'Mandami il nuovo messaggio di benvenuto per il tuo gruppo'}
 
-set_macros={'en':'Macros',
-            'it':'Macro'}
+welcome_message_has_been_set={'en':'The new welcome message has been set',
+                              'it':'Il nuovo messaggio di benvenuto è stato impostato'}
 
-set_warn={'en':'Warn',
-          'it':'Warn'}
+set_rules_button={'en':'Rules',
+                  'it':'Regole'}
+
+ask_for_rules={'en':'Send me the new rules for your group',
+               'it':'Mandami le nuove regole per il tuo gruppo'}
+
+rules_have_been_set={'en':'The new rules have been set',
+                     'it':'Le nuove regole sono state impostate'}
+
+set_macros_button={'en':'Macros',
+                   'it':'Macro'}
+
+ask_for_macro_name={'en':'Send me the new macro\'s name',
+                    'it':'Mandami il nome della nuova macro'}
+
+ask_for_macro_content={'en':'Send me the new macro\'s content',
+                       'it':'Mandami il contenuto della nuova macro'}
+
+macro_has_been_set={'en':'The new macro has been set',
+                    'it':'La nuova macro è stata impostata'}
+
+set_warn_button={'en':'Warn',
+                 'it':'Warn'}
+
+ask_for_warn_limit={'en':'Send me the warn limit to set for your group',
+                    'it':'Mandami il limite di warn da impostare per il tuo gruppo'}
+
+ask_for_warn_limit_action={'en':'Send me the action to perform when the warn limit is reached',
+                           'it':'Mandami l\'azione da fare quando il limite di warn viene raggiunto'}
+
+warn_settings_have_been_set={'en':'The new warn settings have been set',
+                             'it':'Le nuove impostazioni dei warn sono state impostate'}
