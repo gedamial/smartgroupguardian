@@ -1,5 +1,6 @@
 from telegram.ext import Filters
 from telegram import ParseMode,ChatPermissions
+from telegram.utils.helpers import escape_markdown
 import strings
 from decorators import bot_admin,user_admin,target_not_admin,target_member
 from utils import is_banned,GroupCommandHandler
@@ -16,8 +17,9 @@ def ban(update,context):  # TODO until_date, button to unban
     reason=' '.join(context.args)  # FIXME when until_date is added as option
     bot.kick_chat_member(chat.id,user_to_ban.id)
     update.effective_message.reply_text(strings.get(strings.user_has_been_banned,chat,
-                                                    user_to_ban.first_name)+
-                                        ('\n'+strings.get(strings.reason,chat,reason) if reason else ''))
+                                                    escape_markdown(user_to_ban.first_name,version=2))+
+                                        ('\n'+strings.get(strings.reason,chat,reason) if reason else ''),
+                                        parse_mode=ParseMode.MARKDOWN_V2)
 
 
 @bot_admin
@@ -56,8 +58,9 @@ def kick(update,context):
     bot.kick_chat_member(chat.id,user_to_kick.id)
     bot.unban_chat_member(chat.id,user_to_kick.id)
     update.effective_message.reply_text(strings.get(strings.user_has_been_kicked,chat,
-                                                    user_to_kick.first_name)+
-                                        ('\n'+strings.get(strings.reason,chat,reason) if reason else ''))
+                                                    escape_markdown(user_to_kick.first_name,version=2))+
+                                        ('\n'+strings.get(strings.reason,chat,reason) if reason else ''),
+                                        parse_mode=ParseMode.MARKDOWN_V2)
 
 
 @bot_admin
@@ -81,7 +84,11 @@ def unmute(update,context):
     chat=update.effective_chat
     bot=context.bot
     user_to_unmute=update.effective_message.reply_to_message.from_user
-    bot.restrict_chat_member(chat.id,user_to_unmute.id,ChatPermissions(can_send_messages=True))
+    bot.restrict_chat_member(chat.id,user_to_unmute.id,ChatPermissions(can_send_messages=True,
+                                                                       can_send_media_messages=True,
+                                                                       can_send_polls=True,
+                                                                       can_send_other_messages=True,
+                                                                       can_add_web_page_previews=True))
     update.effective_message.reply_text(strings.get(strings.user_has_been_unmuted,chat,
                                                     user_to_unmute.first_name))
 
@@ -91,7 +98,6 @@ def unmute(update,context):
 @target_not_admin
 @target_member  # not actually needed to execute the command
 def warn(update,context):  # TODO buttons to add and remove warns
-    print('warn')
     chat=update.effective_chat
     user_to_warn=update.effective_message.reply_to_message.from_user
     add_warn(user_to_warn.id,chat.id)
