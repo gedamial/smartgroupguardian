@@ -128,7 +128,7 @@ def on_rules_received(update,context):
 
 
 set_rules_conversation=ConversationHandler(
-    entry_points=[CallbackQueryHandler(on_set_welcome_button_pressed,pattern='set_rules')],
+    entry_points=[CallbackQueryHandler(on_set_rules_button_pressed,pattern='set_rules')],
     states={
         WAITING_FOR_RULES:[MessageHandler(Filters.text,on_rules_received)]
     },
