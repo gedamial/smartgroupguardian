@@ -145,3 +145,52 @@ ask_for_warn_limit_action={'en':'Send me the action to perform when the warn lim
 
 warn_settings_have_been_set={'en':'The new warn settings have been set',
                              'it':'Le nuove impostazioni dei warn sono state impostate'}
+
+add_to_a_group={
+    'en':':heavy_plus_sign: Add me to a Group :heavy_plus_sign:',
+    'it':':heavy_plus_sign: Aggiungimi ad un Gruppo :heavy_plus_sign:'
+}
+commands_private={
+    'en': ':book: Commands :book:',
+    'it': ':book: Comandi :book:'
+}
+back_button={
+    'en': ':arrow_left: BACK',
+    'it': ':arrow_left: INDIETRO'
+}
+commands_list={
+    'en': """<b>COMMANDS</b>
+:x: warn :crown:
+:white_check_mark: kick :crown:
+:white_check_mark: ban :crown:
+:white_check_mark: unban :crown:
+:warning: mute :crown:
+:warning: unmute :crown:
+:x: wm :crown:
+:white_check_mark: ping 
+:x: macro
+<b>LEGEND</b>
+:x: Not done yet
+:warning: Bugs detected
+:white_check_mark: Done
+:crown: Admin-only command""",
+    'it': """<b>COMANDI</b>
+:x: warn :crown:
+:white_check_mark: kick :crown:
+:white_check_mark: ban :crown:
+:white_check_mark: unban :crown:
+:warning: mute :crown:
+:warning: unmute :crown:
+:x: wm :crown:
+:white_check_mark: ping 
+:x: macro
+<b>LEGENDA</b>
+:x: Non ancora fatto
+:warning: Bug rilevati
+:white_check_mark: Fatto
+:crown: Comando Solo-Admin"""
+}
+on_settings_private={
+    'en': "Use this command in a group",
+    'it': "Utilizza questo comando in un gruppo"
+}
