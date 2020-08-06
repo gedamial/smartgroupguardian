@@ -16,6 +16,7 @@ def main():
     updater=Updater(TOKEN,use_context=True)
     dispatcher=updater.dispatcher
     dispatcher.add_error_handler(error)  # TODO only for testing
+
     add_handlers(dispatcher,admins_only)
     add_handlers(dispatcher,public_functions)
     add_handlers(dispatcher,setup_functions)

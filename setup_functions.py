@@ -7,6 +7,7 @@ from data_base import set_admin_current_chat,set_chat_language,get_admin_current
     set_warn_limit,set_warn_limit_action,set_macro
 from decorators import bot_admin,user_admin,user_admin_in_current_chat,bot_admin_in_current_chat
 from utils import PrivateCommandHandler,GroupCommandHandler,generic_fallback_handler,cancel_handler
+
 import emoji
 import sqlite3
 
@@ -43,6 +44,7 @@ private_conversation = ConversationHandler(
     },
     fallbacks=[cancel_handler,generic_fallback_handler]
 )
+
 def start_group(update,context):
     # should create a chat instance in the data base Chat(id,language_code,warn_limit,warn_limit_action,rules,...)
     update.effective_message.reply_text(strings.get(strings.group_start_message,update.effective_chat))
@@ -77,8 +79,11 @@ def settings(update,context):
     bot.send_message(user.id,strings.get(strings.select_setting,user.language_code),
                      reply_markup=create_settings_keyboard(user.language_code))
 
+
 def settings_alert(update, context):
     update.effective_message.reply_text(strings.get(strings.on_settings_private,update))
+
+    
 # SET LANGUAGE CONVERSATION
 WAITING_FOR_LANGUAGE=0
 
