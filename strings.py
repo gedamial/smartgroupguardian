@@ -24,11 +24,23 @@ am_i_admin={'en':'Am I admin?',
 cannot_perform_on_admin={'en':'Cannot perform this action on another admin',
                          'it':'Non posso eseguire questa azione su un altro admin'}
 
+cannot_perform_on_you={'en':'Cannot perform this action on you',
+                       'it':'Non posso eseguire questa azione su di te'}
+
+cannot_perform_on_me={'en':'Cannot perform this action on me',
+                      'it':'Non posso eseguire questa azione su di me'}
+
 user_is_not_banned={'en':'{} is not banned',
                     'it':'{} non è bannato'}
 
 user_is_not_member={'en':'{} is not a member of this group',
                     'it':'{} non fa parte della chat'}
+
+user_is_not_restricted={'en':'{} is not restricted',
+                        'it':'{} non è mutato'}
+
+this_command_needs_target={'en':'This command needs a message as target',
+                           'it':'Questo comando ha bisogno di un messaggio come obiettivo'}
 
 # REPLIES
 you_can_join={'en':'You can join the group chat again {}',
@@ -49,8 +61,8 @@ user_has_been_muted={'en':'{} has been muted',
 user_has_been_unmuted={'en':'{} has been unmuted',
                        'it':'{} è stato smutato'}
 
-reason={'en':'*Reason*: {}',
-        'it':'*Motivo*: {}'}
+reason={'en':'<b>Reason</b>: {}',
+        'it':'<b>Motivo</b>: {}'}
 
 user_has_been_warned={'en':'{} has been warned\n'
                            'Current warns: {}/{}',
@@ -146,20 +158,16 @@ ask_for_warn_limit_action={'en':'Send me the action to perform when the warn lim
 warn_settings_have_been_set={'en':'The new warn settings have been set',
                              'it':'Le nuove impostazioni dei warn sono state impostate'}
 
-add_to_a_group={
-    'en':':heavy_plus_sign: Add me to a Group :heavy_plus_sign:',
-    'it':':heavy_plus_sign: Aggiungimi ad un Gruppo :heavy_plus_sign:'
-}
-commands_private={
-    'en': ':book: Commands :book:',
-    'it': ':book: Comandi :book:'
-}
-back_button={
-    'en': ':arrow_left: BACK',
-    'it': ':arrow_left: INDIETRO'
-}
+add_to_a_group={'en':':heavy_plus_sign: Add me to a Group :heavy_plus_sign:',
+                'it':':heavy_plus_sign: Aggiungimi ad un Gruppo :heavy_plus_sign:'}
+
+commands_private={'en':':book: Commands :book:',
+                  'it':':book: Comandi :book:'}
+back_button={'en':':arrow_left: BACK',
+             'it':':arrow_left: INDIETRO'}
+
 commands_list={
-    'en': """<b>COMMANDS</b>
+    'en':"""<b>COMMANDS</b>
 :x: warn :crown:
 :white_check_mark: kick :crown:
 :white_check_mark: ban :crown:
@@ -174,7 +182,7 @@ commands_list={
 :warning: Bugs detected
 :white_check_mark: Done
 :crown: Admin-only command""",
-    'it': """<b>COMANDI</b>
+    'it':"""<b>COMANDI</b>
 :x: warn :crown:
 :white_check_mark: kick :crown:
 :white_check_mark: ban :crown:
@@ -188,9 +196,29 @@ commands_list={
 :x: Non ancora fatto
 :warning: Bug rilevati
 :white_check_mark: Fatto
-:crown: Comando Solo-Admin"""
+:crown: Comando Solo-Admin"""}
+
+on_settings_private={'en':'Use this command in a group',
+                     'it':'Utilizza questo comando in un gruppo'}
+support_button={
+    'en':':phone:Support',
+    'it':':phone:Supporto'
 }
-on_settings_private={
-    'en': "Use this command in a group",
-    'it': "Utilizza questo comando in un gruppo"
+support_button_message={
+    'en': "send any message and it will be forwarded to the admins:white_check_mark:\n(It's not working at the moment)",
+    'it': 'Invia qualsiasi messaggio e sarà inoltrato agli admin:white_check_mark:\nAl momento non funziona'
+}
+info_button={
+    'en': """Hi {} :wave:, what's up?
+I'm {}🤖nice to meet you.
+My purpose is very simple, to help administrators manage their groups.
+My developers👩‍💻 are doing everything to make me as smart as possible and take away as much work as possible from the admins.
+If you want some more info about me you can take a look <a href="https://github.com/gedamial/smartgroupguardian">here</a>.
+This bot is an open source project and if you want to help, you can join the telegram group by clicking <a href="https://github.com/gedamial/smartgroupguardian">here</a>""",
+    'it': """Ciao {} :wave:, come va?
+Sono {}🤖 piacere di conoscerti.
+Il mio scopo è molto semplice, aiutare gli admin a gestire i loro gruppi.
+I miei sviluppatori👩‍💻 stanno facendo il possobile per rendermi il più intelligente possibile e togliere molto lavoro agli admin.
+Se vuoi più info su di me puoi dare un occhiata <a href="https://github.com/gedamial/smartgroupguardian">qui</a>.
+Questo bot è un progetto open source e se vuoi aiutare puoi entrare nel gruppo telegram cliccando <a href="https://github.com/gedamial/smartgroupguardian">qui</a>."""
 }
