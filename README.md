@@ -19,8 +19,8 @@ We trust in the power of open-source software, so we all agreed to make this cho
 
 Beside the common features (e.g. ban, warn...), this bot provides quite new features, such as the ```macro``` command and the measures adopted to enforce new group members to read the group rules.
 
-The full features list is available [here](docs/features.md).
+The full **features list** is available [here](docs/features.md).
 
 ## FAQs
 
-You can find the Frequently Asked Questions [here](docs/faqs.md).
+You can find the **Frequently Asked Questions** [here](docs/faqs.md).
