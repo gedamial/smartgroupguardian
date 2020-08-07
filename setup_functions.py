@@ -1,5 +1,5 @@
 # functions to use while configuring the bot for a group. to work in private, for admins only
-from telegram import InlineKeyboardMarkup,InlineKeyboardButton,ReplyKeyboardMarkup,ReplyKeyboardRemove
+from telegram import InlineKeyboardMarkup,InlineKeyboardButton,ReplyKeyboardMarkup,ReplyKeyboardRemove,ParseMode
 from telegram.ext import ConversationHandler,CallbackQueryHandler,Filters,MessageHandler
 from const import LANGUAGES,LANGUAGE_CODES,COMPLETE_LANGUAGES,CHAT_TO_LANGUAGE,WARN_LIMIT_ACTIONS
 import strings
@@ -8,42 +8,49 @@ from data_base import set_admin_current_chat,set_chat_language,get_admin_current
 from decorators import bot_admin,user_admin,user_admin_in_current_chat,bot_admin_in_current_chat
 from utils import PrivateCommandHandler,GroupCommandHandler,generic_fallback_handler,cancel_handler
 
-import emoji
-import sqlite3
+from emoji import emojize
+
 
 def start(update,context):
-    user = update.effective_user
-    mex = update.effective_message
+    user=update.effective_user
+    mex=update.effective_message
     chat=update.effective_chat
-    keyboard = [[InlineKeyboardButton(emoji.emojize(strings.get(strings.add_to_a_group,update), use_aliases="True"), url="https://t.me/SmartGroupGuardianBot?startgroup=start")],
-    [InlineKeyboardButton(emoji.emojize(strings.get(strings.commands_private, update), use_aliases="True"), callback_data="commands_private")]]
-    reply_markup = InlineKeyboardMarkup(keyboard)
+    keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.add_to_a_group,update),use_aliases=True),
+                                    url='https://t.me/SmartGroupGuardianBot?startgroup=start')],
+              [InlineKeyboardButton(emojize(strings.get(strings.commands_private,update),use_aliases=True),
+                                    callback_data='commands_private')]]
+    reply_markup=InlineKeyboardMarkup(keyboard)
     update.effective_message.reply_text(strings.get(strings.private_start_message,update),
-                                            reply_markup = reply_markup)
-    if mex.text == "/start":
-        pass
-    else:
-        context.bot.delete_message(chat_id=user.id, message_id=mex.message_id)
-def commands_private(update, context):
-    user = update.effective_user
-    query = update.callback_query
+                                        reply_markup=reply_markup)
+    if mex.text!='/start':
+        context.bot.delete_message(user.id,mex.message_id)
+
+
+def commands_private(update,context):
+    user=update.effective_user
+    query=update.callback_query
     query.answer()
-    keyboard = [[InlineKeyboardButton(emoji.emojize(strings.get(strings.back_button,update), use_aliases="True"), callback_data="back")]]
-    reply_markup = InlineKeyboardMarkup(keyboard)
+    keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.back_button,update),use_aliases=True),
+                                    callback_data='back')]]
+    reply_markup=InlineKeyboardMarkup(keyboard)
     query.edit_message_text(
-        text = emoji.emojize(strings.get(strings.commands_list, update), use_aliases="True"),
-        reply_markup = reply_markup,
-        parse_mode= "HTML"
+        text=emojize(strings.get(strings.commands_list,update),use_aliases=True),
+        reply_markup=reply_markup,
+        parse_mode=ParseMode.HTML
     )
-COMMANDS, BACK = range(2)
-private_conversation = ConversationHandler(
-    entry_points=[CallbackQueryHandler(commands_private,pattern='commands_private'),CallbackQueryHandler(start,pattern='back')],
+
+
+COMMANDS,BACK=0,1
+private_conversation=ConversationHandler(
+    entry_points=[CallbackQueryHandler(commands_private,pattern='commands_private'),
+                  CallbackQueryHandler(start,pattern='back')],
     states={
         COMMANDS:[CallbackQueryHandler(commands_private,pattern='commands_private')],
         BACK:[CallbackQueryHandler(start,pattern='back')]
     },
     fallbacks=[cancel_handler,generic_fallback_handler]
 )
+
 
 def start_group(update,context):
     # should create a chat instance in the data base Chat(id,language_code,warn_limit,warn_limit_action,rules,...)
@@ -80,12 +87,12 @@ def settings(update,context):
                      reply_markup=create_settings_keyboard(user.language_code))
 
 
-def settings_alert(update, context):
+def settings_alert(update,context):
     update.effective_message.reply_text(strings.get(strings.on_settings_private,update))
 
-    
+
 # SET LANGUAGE CONVERSATION
-WAITING_FOR_LANGUAGE=0
+WAITING_FOR_LANGUAGE=2
 
 
 # @bot_admin_in_current_chat  # don't work without data base
@@ -118,7 +125,7 @@ set_language_conversation=ConversationHandler(
 )
 
 # SET WELCOME MESSAGE CONVERSATION
-WAITING_FOR_WELCOME_MESSAGE=0
+WAITING_FOR_WELCOME_MESSAGE=3
 
 
 # @bot_admin_in_current_chat
@@ -145,7 +152,7 @@ set_welcome_conversation=ConversationHandler(
 )
 
 # SET RULES CONVERSATION
-WAITING_FOR_RULES=0
+WAITING_FOR_RULES=4
 
 
 # @bot_admin_in_current_chat
@@ -172,7 +179,7 @@ set_rules_conversation=ConversationHandler(
 )
 
 # SET MACROS CONVERSATION
-WAITING_FOR_MACRO_NAME,WAITING_FOR_MACRO_CONTENT=0,1
+WAITING_FOR_MACRO_NAME,WAITING_FOR_MACRO_CONTENT=5,6
 
 
 # @bot_admin_in_current_chat
@@ -210,7 +217,7 @@ set_macro_conversation=ConversationHandler(
 )
 
 # SET WARN CONVERSATION
-WAITING_FOR_WARN_LIMIT,WAITING_FOR_WARN_LIMIT_ACTION=0,1
+WAITING_FOR_WARN_LIMIT,WAITING_FOR_WARN_LIMIT_ACTION=7,8
 
 
 # @bot_admin_in_current_chat
