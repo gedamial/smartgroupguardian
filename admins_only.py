@@ -1,4 +1,5 @@
 from telegram import ParseMode,ChatPermissions
+from telegram.utils.helpers import escape
 import strings
 from decorators import bot_admin,user_admin,target_not_admin,target_member,has_target,target_not_self,target_restricted
 from utils import is_banned,GroupCommandHandler
@@ -18,7 +19,7 @@ def ban(update,context):  # TODO until_date, button to unban
     bot.kick_chat_member(chat.id,user_to_ban.id)
     update.effective_message.reply_text(strings.get(strings.user_has_been_banned,chat,
                                                     user_to_ban.mention_html())+'\n'+
-                                        (strings.get(strings.reason,chat,reason) if reason else ''),
+                                        (strings.get(strings.reason,chat,escape(reason,True)) if reason else ''),
                                         parse_mode=ParseMode.HTML)
 
 
@@ -65,7 +66,7 @@ def kick(update,context):
     bot.unban_chat_member(chat.id,user_to_kick.id)
     update.effective_message.reply_text(strings.get(strings.user_has_been_kicked,chat,
                                                     user_to_kick.mention_html())+'\n'+
-                                        (strings.get(strings.reason,chat,reason) if reason else ''),
+                                        (strings.get(strings.reason,chat,escape(reason,True)) if reason else ''),
                                         parse_mode=ParseMode.HTML)
 
 
