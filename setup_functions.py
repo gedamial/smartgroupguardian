@@ -16,7 +16,7 @@ def start(update,context):
     mex=update.effective_message
     chat=update.effective_chat
     keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.add_to_a_group,update),use_aliases=True),
-                                    url='https://t.me/SmartGroupGuardianBot?startgroup=start')],
+                                    url=f'https://t.me/{context.bot.get_me().username}?startgroup=start')],
               [InlineKeyboardButton(emojize(strings.get(strings.commands_private,update),use_aliases=True),
                                     callback_data='commands_private')]]
     reply_markup=InlineKeyboardMarkup(keyboard)
