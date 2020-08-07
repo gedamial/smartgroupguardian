@@ -1,6 +1,7 @@
-from telegram import ChatMember,ReplyKeyboardRemove
+from telegram import ChatMember,ReplyKeyboardRemove,ChatPermissions
 from telegram.ext import MessageHandler,Filters,CommandHandler,ConversationHandler
 import strings
+from traceback import format_exception
 
 
 class RegexCommandHandler(MessageHandler):
@@ -47,6 +48,23 @@ def is_member(user_id,chat_id,bot):
         return False
 
 
+def is_restricted(user_id,chat_id,bot):
+    try:
+        chat_permissions=bot.get_chat(chat_id).permissions
+        user=bot.get_chat_member(chat_id,user_id)
+        user_permissions=ChatPermissions(can_send_messages=user.can_send_messages,
+                                         can_send_media_messages=user.can_send_media_messages,
+                                         can_send_polls=user.can_send_polls,
+                                         can_send_other_messages=user.can_send_other_messages,
+                                         can_add_web_page_previews=user.can_add_web_page_previews,
+                                         can_change_info=user.can_change_info,
+                                         can_invite_users=user.can_invite_users,
+                                         can_pin_messages=user.can_pin_messages)
+        return user_permissions!=chat_permissions
+    except:
+        return False
+
+
 def generic_fallback(update,context):
     update.effective_message.reply_text(strings.get(strings.operation_not_allowed,update))
 
@@ -62,4 +80,4 @@ cancel_handler=CommandHandler('cancel',cancel)
 
 
 def error(update,context):  # TODO only for testing
-    update.effective_message.reply_text('Error in execution:\n'+str(context.error))
+    update.effective_message.reply_text(''.join(format_exception(None,context.error,context.error.__traceback__)))
