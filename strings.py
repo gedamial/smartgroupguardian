@@ -200,14 +200,17 @@ commands_list={
 
 on_settings_private={'en':'Use this command in a group',
                      'it':'Utilizza questo comando in un gruppo'}
+
 support_button={
     'en':':phone:Support',
     'it':':phone:Supporto'
 }
+
 support_button_message={
     'en': "send any message and it will be forwarded to the admins:white_check_mark:\n(It's not working at the moment)",
     'it': 'Invia qualsiasi messaggio e sarà inoltrato agli admin:white_check_mark:\nAl momento non funziona'
 }
+
 info_button={
     'en': """Hi {} :wave:, what's up?
 I'm {}🤖nice to meet you.

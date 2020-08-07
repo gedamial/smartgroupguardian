@@ -54,6 +54,7 @@ def support_button(update, context): #TODO forward messages and reply to them
         text=emojize(strings.get(strings.support_button_message,update), use_aliases=True),
         reply_markup=reply_markup
         )
+    
 def info_button(update, context):
     user=update.effective_user
     query=update.callback_query
