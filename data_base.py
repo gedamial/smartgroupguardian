@@ -85,3 +85,39 @@ def set_warn_limit_action(chat_id,action):
 
 def get_warn_limit_action(chat_id):
     pass
+
+    ##########################
+    #   Bad words functions #
+    ##########################
+
+def get_bad_words(chat_id):
+    # returns a list of every bad_word
+    pass
+
+
+def add_bad_word(chat_id,bad_word: str):
+    # adds a new bad_word to the database
+    pass
+
+
+def remove_bad_word(chat_id,bad_word: str):
+    # remove a bad_word from the database
+    pass
+
+
+def get_suspicious_bad_words(chat_id):
+    def get_bad_words(chat_id):
+    # returns a list of every suspicious bad_word
+    pass
+
+
+def add_suspicious_bad_word(chat_id,suspicious_bad_word: str):
+    # adds a new suspicious bad_word to the database
+    pass
+
+
+def remove_suspicious_bad_word(chat_id,suspicios_bad_word: str):
+    # remove a suspicious bad_word from the database
+    pass
+
+    ##########################
