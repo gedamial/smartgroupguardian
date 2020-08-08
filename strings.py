@@ -200,3 +200,25 @@ commands_list={
 
 on_settings_private={'en':'Use this command in a group',
                      'it':'Utilizza questo comando in un gruppo'}
+support_button={
+    'en':':phone:Support',
+    'it':':phone:Supporto'
+}
+support_button_message={
+    'en': "send any message and it will be forwarded to the admins:white_check_mark:\n(It's not working at the moment)",
+    'it': 'Invia qualsiasi messaggio e sarà inoltrato agli admin:white_check_mark:\nAl momento non funziona'
+}
+info_button={
+    'en': """Hi {} :wave:, what's up?
+I'm {}🤖nice to meet you.
+My purpose is very simple, to help administrators manage their groups.
+My developers👩‍💻 are doing everything to make me as smart as possible and take away as much work as possible from the admins.
+If you want some more info about me you can take a look <a href="https://github.com/gedamial/smartgroupguardian">here</a>.
+This bot is an open source project and if you want to help, you can join the telegram group by clicking <a href="https://github.com/gedamial/smartgroupguardian">here</a>""",
+    'it': """Ciao {} :wave:, come va?
+Sono {}🤖 piacere di conoscerti.
+Il mio scopo è molto semplice, aiutare gli admin a gestire i loro gruppi.
+I miei sviluppatori👩‍💻 stanno facendo il possobile per rendermi il più intelligente possibile e togliere molto lavoro agli admin.
+Se vuoi più info su di me puoi dare un occhiata <a href="https://github.com/gedamial/smartgroupguardian">qui</a>.
+Questo bot è un progetto open source e se vuoi aiutare puoi entrare nel gruppo telegram cliccando <a href="https://github.com/gedamial/smartgroupguardian">qui</a>."""
+}

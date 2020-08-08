@@ -17,6 +17,10 @@ def start(update,context):
     chat=update.effective_chat
     keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.add_to_a_group,update),use_aliases=True),
                                     url=f'https://t.me/{context.bot.get_me().username}?startgroup=start')],
+                [InlineKeyboardButton(emojize(strings.get(strings.support_button,update),use_aliases=True),
+                                    callback_data="support"),
+                 InlineKeyboardButton(emojize(":information_source:Info",use_aliases=True),
+                                    callback_data="info")]   ,
               [InlineKeyboardButton(emojize(strings.get(strings.commands_private,update),use_aliases=True),
                                     callback_data='commands_private')]]
     reply_markup=InlineKeyboardMarkup(keyboard)
@@ -39,14 +43,41 @@ def commands_private(update,context):
         parse_mode=ParseMode.HTML
     )
 
-
-COMMANDS,BACK=0,1
+def support_button(update, context): #TODO forward messages and reply to them
+    user=update.effective_user
+    query=update.callback_query
+    query.answer()
+    keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.back_button,update),use_aliases=True),
+                                    callback_data='back')]]
+    reply_markup=InlineKeyboardMarkup(keyboard)
+    query.edit_message_text(
+        text=emojize(strings.get(strings.support_button_message,update), use_aliases=True),
+        reply_markup=reply_markup
+        )
+def info_button(update, context):
+    user=update.effective_user
+    query=update.callback_query
+    query.answer()
+    keyboard=[[InlineKeyboardButton(emojize(strings.get(strings.back_button,update),use_aliases=True),
+                                    callback_data='back')]]
+    reply_markup=InlineKeyboardMarkup(keyboard)
+    query.edit_message_text(
+        text=emojize(strings.get(strings.info_button,update,user.first_name,context.bot.get_me().first_name), use_aliases=True),
+        reply_markup=reply_markup,
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True
+        )
+COMMANDS,BACK,SUPPORT,INFO=range(4)
 private_conversation=ConversationHandler(
     entry_points=[CallbackQueryHandler(commands_private,pattern='commands_private'),
-                  CallbackQueryHandler(start,pattern='back')],
+                  CallbackQueryHandler(start,pattern='back'),
+                  CallbackQueryHandler(support_button, pattern="support"),
+                  CallbackQueryHandler(info_button, pattern="info")],
     states={
         COMMANDS:[CallbackQueryHandler(commands_private,pattern='commands_private')],
-        BACK:[CallbackQueryHandler(start,pattern='back')]
+        BACK:[CallbackQueryHandler(start,pattern='back')],
+        SUPPORT:[CallbackQueryHandler(support_button, pattern="support")],
+        INFO:[CallbackQueryHandler(info_button, pattern="info")]
     },
     fallbacks=[cancel_handler,generic_fallback_handler]
 )

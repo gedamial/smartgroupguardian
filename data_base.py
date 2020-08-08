@@ -108,7 +108,7 @@ def remove_bad_word(chat_id,bad_word: str):
 def get_suspicious_bad_words(chat_id):
     def get_bad_words(chat_id):
     # returns a list of every suspicious bad_word
-    pass
+        pass
 
 
 def add_suspicious_bad_word(chat_id,suspicious_bad_word: str):
