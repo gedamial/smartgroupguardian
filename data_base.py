@@ -121,3 +121,21 @@ def remove_suspicious_bad_word(chat_id,suspicios_bad_word: str):
     pass
 
     ##########################
+
+    ##########################
+    #  NIGHT MODE FUNCTIONS  #
+    ##########################
+    
+def set_night_mode(chat_id, from_time, minutes):
+    # set a time from which night mode is active for the specified minutes
+    pass
+
+def get_night_mode(chat_id):
+    # return the the night mode setting
+    pass
+
+def remove_night_mode(chat_id):
+    # remove the night mode setting
+    pass
+
+    ##########################
