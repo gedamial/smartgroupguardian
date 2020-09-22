@@ -1,6 +1,7 @@
 from telegram import Update
-from data_base import get_welcome_message, get_bad_words, add_suspicious_bad_word, add_warn
+from data_base import get_welcome_message, get_bad_words, add_suspicious_bad_word, add_warn, get_night_mode
 from difflib import SequenceMatcher
+from datetime import datetime, timedelta, date
 from sqlite3 import DatabaseError
 from time import sleep
 from telegram.ext import ConversationHandler, CallbackQueryHandler, Filters, MessageHandler, run_async
@@ -45,7 +46,27 @@ def bad_words_filter(update: Update):
                         sleep(1)
 
     #######################
+    
+    
+    ### NIGHT MODE ###
 
+@run_async
+def night_mode_filter(update: Update):
+    chat = update.effective_chat
+    
+    from_time_setting, minutes = get_night_mode(update.effective_chat.id) # get the current night mode settings (Should return (None, None) if it isn't set).
+    
+    if (from_time_setting is not None and minutes is not None): # if one of them is None then it means that the night mode is not set. Note: They should always be both None or not None
+    
+        from_time = datetime.combine(date.today(), from_time_setting) # from_time should be a datetime.time
+        to_time = from_time + timedelta(minutes = minutes) # get the time in which the night mode setting ends
+
+        if (from_time <= datetime.now() <= to_time): # if the current time is inside the night time interval then
+            update.effective_message.reply_text(string.get(strings.night_mode_message, chat, from_time, to_time), # reply with night mode message
+                                                parse_mode= ParseMode.HTML)
+            return
+        
+    #######################
 
 handlers = [
     MessageHandler(Filters.status_update.new_chat_members, welcome)
