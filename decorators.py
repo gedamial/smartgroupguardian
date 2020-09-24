@@ -1,7 +1,23 @@
 import strings
 from utils import am_i_admin,is_admin,is_member,is_restricted
-from data_base import get_admin_current_chat
+from data_base import get_admin_current_chat,get_night_mode
+from datetime import datetime, timedelta, date
 
+def night_mode(func):
+    def wrapper(update, context):
+        from_time_setting, minutes = get_night_mode(update.effective_chat.id) # get chat night mode settings
+        if (from_time_setting is None or minutes is None): # check night mode settings
+            return func(update, context) # this means that there is no night mode set for the chat and therefore you can go
+        
+        # if you are here it means that there is a night mode set for the chat
+        from_time = datetime.combine(date.today(), from_time_setting) # get the starting time of the night mode
+        to_time = timedelta(minutes = minutes) + from_time # get the ending time of the night mode by adding the minutes
+        
+        if (am_i_admin(context.bot, update.effective_chat.id) or not(from_time <= datetime.now() <= to_time)): # if you are an admin or you are not in between the night time hours
+            return func(update, context) # you can safely go cause you are either an admin or not in night mode
+        context.bot.delete_message(update.effective_chat.id,update.effective_message.message_id) # or else your message will be deleted
+                                   
+    return wrapper
 
 def bot_admin(func):
     def wrapper(update,context):
